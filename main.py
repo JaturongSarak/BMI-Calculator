@@ -17,7 +17,9 @@ class BMICalculator:
         else:
             return 'Underweight'
 
-
-Robot = BMICalculator(weight=80, height=170)
+print('BMI Calculator')
+weight = input('Weight (kg.) : ')
+height = input('Height (cm.) : ')
+Robot = BMICalculator(float(weight), float(height))
 print(Robot.bmi())
 print(Robot.chart())

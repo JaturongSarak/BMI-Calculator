@@ -3,10 +3,11 @@ class BMICalculator:
         self.weight = weight  # kg.
         self.height = height  # cm.
 
-    def bmi(self, weight, height):
-        return weight / ((height / 100) ** 2)
+    def bmi(self):
+        return self.weight / ((self.height / 100) ** 2)
 
-    def chart(self, bmi):
+    def chart(self):
+        bmi = self.bmi()
         if bmi < 18.5:
             return 'Underweight'
         elif bmi < 25:
@@ -20,7 +21,6 @@ print('BMI Calculator')
 weight = input('Weight (kg.) : ')
 height = input('Height (cm.) : ')
 Robot = BMICalculator(float(weight), float(height))
-bmi = Robot.bmi(Robot.weight, Robot.height)
-chart = Robot.chart(bmi)
-print(bmi)
-print(chart)
+bmi = Robot.bmi()
+chart = Robot.chart()
+print(f'{bmi} = {chart}')

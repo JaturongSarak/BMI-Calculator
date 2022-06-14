@@ -17,10 +17,42 @@ class BMICalculator:
         else:
             return 'Obese'
 
-print('BMI Calculator')
-weight = input('Weight (kg.) : ')
-height = input('Height (cm.) : ')
-Robot = BMICalculator(float(weight), float(height))
-bmi = Robot.bmi()
-chart = Robot.chart()
-print(f'{bmi} = {chart}')
+
+import tkinter
+
+from matplotlib.pyplot import grid
+
+App = tkinter.Tk()
+App.title('BMI Calculator')
+
+weight_label = tkinter.Label(App, text='Weight (kg.)')
+height_label = tkinter.Label(App, text='Height (cm.)')
+result_label = tkinter.Label(App, text='BMI')
+bmi_label = tkinter.Label(App, text='')
+chart_label = tkinter.Label(App, text='')
+
+weight_entry = tkinter.Entry()
+height_entry = tkinter.Entry()
+
+
+def start():
+    Robot = BMICalculator(float(weight_entry.get()), float(height_entry.get()))
+    bmi = Robot.bmi()
+    chart = Robot.chart()
+    bmi_label.config(text=bmi)
+    chart_label.config(text=chart)
+
+calculator_button = tkinter.Button(App, text='Calculate', command=start)
+
+weight_label.grid(column=0, row=0, padx=10, pady=5)
+height_label.grid(column=0, row=1, padx=10, pady=5)
+result_label.grid(column=0, row=2, padx=10, pady=5)
+bmi_label.grid(column=1, row=2, padx=10, pady=5)
+chart_label.grid(column=2, row=2, padx=10, pady=5)
+
+weight_entry.grid(column=1, row=0, padx=10, pady=5)
+height_entry.grid(column=1, row=1, padx=10, pady=5)
+
+calculator_button.grid(column=2, row=0, padx=10, pady=5, ipadx=5)
+
+App.mainloop()

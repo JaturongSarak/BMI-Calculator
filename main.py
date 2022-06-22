@@ -20,8 +20,6 @@ class BMICalculator:
 
 import tkinter
 
-from matplotlib.pyplot import grid
-
 App = tkinter.Tk()
 App.title('BMI Calculator')
 

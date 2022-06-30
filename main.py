@@ -29,8 +29,8 @@ result_label = tkinter.Label(App, text='BMI')
 bmi_label = tkinter.Label(App, text='')
 chart_label = tkinter.Label(App, text='')
 
-weight_entry = tkinter.Entry()
-height_entry = tkinter.Entry()
+weight_entry = tkinter.Entry(App)
+height_entry = tkinter.Entry(App)
 
 
 def start():
